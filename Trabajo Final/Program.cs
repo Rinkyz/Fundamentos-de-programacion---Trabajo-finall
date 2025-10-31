@@ -26,7 +26,7 @@
             do
             {
                 Console.Clear();
-                Console.WriteLine("=== SISTEMA DE GESTIÓN DE RESERVAS DEL HOTEL ===");
+                Console.WriteLine(" SISTEMA DE GESTIÓN DE RESERVAS DEL HOTEL AILEENS");
                 Console.WriteLine("1. Gestión de Habitaciones");
                 Console.WriteLine("2. Gestión de Huéspedes");
                 Console.WriteLine("3. Gestión de Reservas");
@@ -58,14 +58,14 @@
             } while (opcion != "4");
         }
 
-        // ------------------ GESTIÓN DE HABITACIONES ------------------
+        // Gestión de Habitaciones
         static void GestionHabitaciones()
         {
             string opcion;
             do
             {
                 Console.Clear();
-                Console.WriteLine("=== GESTIÓN DE HABITACIONES ===");
+                Console.WriteLine(" GESTIÓN DE HABITACIONES ");
                 Console.WriteLine("1. Registrar habitación");
                 Console.WriteLine("2. Ver lista de habitaciones");
                 Console.WriteLine("3. Editar habitación");
