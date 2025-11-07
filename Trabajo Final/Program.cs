@@ -473,12 +473,6 @@
 
         static void RegistrarReserva()//AILEEN
         {
-            string[] reservaHuesped = new string[20];
-            int[] reservaHabitacion = new int[20];
-            string[] fechaEntrada = new string[20];
-            string[] fechaSalida = new string[20];
-            bool[] reservaActiva = new bool[20];
-            int totalReservas = 0;
             if (totalReservas >= 20)
             {
                 Console.WriteLine("No se pueden registrar más reservas.");
@@ -537,7 +531,6 @@
             reservaHuesped[totalReservas] = nombreHuesped[indiceHuesped];
             reservaHabitacion[totalReservas] = numHabitacion[indiceHab];
             disponible[indiceHab] = false;
-            reservaActiva[totalReservas] = true;
             totalReservas++;
 
             Console.WriteLine("Reserva registrada correctamente.");
