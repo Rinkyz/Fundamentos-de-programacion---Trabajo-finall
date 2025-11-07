@@ -64,6 +64,7 @@
         // Gestión de Habitaciones
         static void GestionHabitaciones()
         {
+
             string opcion;
             do
             {
@@ -83,7 +84,7 @@
                     case "2": VerListaHabitaciones(); break;
                     case "3": EditarHabitacion(); break;
                     case "4": VerDisponibilidad(); break;
-                    case "5": break;
+                    case "5": Main(); break;
                     default:
                         Console.WriteLine("Opción no válida");
                         Console.ReadKey();
@@ -178,7 +179,7 @@
             precioHabitacion[totalHabitaciones] = precio;
             disponible[totalHabitaciones] = true;
             totalHabitaciones++;
-
+            
             Console.WriteLine("Habitación registrada correctamente.");
             Console.ReadKey();
         }
@@ -284,7 +285,7 @@
                     case "1": RegistrarHuesped(); break;
                     case "2": VerListaHuespedes(); break;
                     case "3": EditarHuesped(); break;
-                    case "4": break;
+                    case "4": Main(); break;
                     default:
                         Console.WriteLine("Opción no válida.");
                         Console.ReadKey();
@@ -414,7 +415,7 @@
                     case "1": RegistrarReserva(); break;
                     case "2": VerReservas(); break;
                     case "3": CancelarReserva(); break;
-                    case "4": break;
+                    case "4": Main(); break;
                     default:
                         Console.WriteLine("Opción no válida.");
                         Console.ReadKey();
