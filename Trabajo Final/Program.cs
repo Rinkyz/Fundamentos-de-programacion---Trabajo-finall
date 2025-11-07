@@ -234,12 +234,33 @@
             {
                 if (numHabitacion[i] == numero)
                 {
-                    Console.Write("Nuevo tipo: ");
+                    Console.Write("Nuevo tipo (I = Individual, D = Doble, S = Suite): ");
                     string nuevoTipo = Console.ReadLine();
+
                     if (!string.IsNullOrWhiteSpace(nuevoTipo))
                     {
-                        tipoHabitacion[i] = nuevoTipo;
-                    }                    
+                        switch (nuevoTipo.ToUpper())
+                        {
+                            case "I":
+                                tipoHabitacion[i] = "Individual";
+                                break;
+                            case "D":
+                                tipoHabitacion[i] = "Doble";
+                                break;
+                            case "S":
+                                tipoHabitacion[i] = "Suite";
+                                break;
+                            default:
+                                Console.WriteLine("Opción no válida. Por favor escriba I, D o S.");
+                                Console.ReadKey();
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Debe ingresar un tipo de habitación válido.");
+                        Console.ReadKey();
+                    }
 
                     Console.Write("Nuevo precio: ");
                     string entradaPrecio = Console.ReadLine();
@@ -452,7 +473,13 @@
 
         static void RegistrarReserva()//AILEEN
         {
-            if (totalReservas >= 100)
+            string[] reservaHuesped = new string[20];
+            int[] reservaHabitacion = new int[20];
+            string[] fechaEntrada = new string[20];
+            string[] fechaSalida = new string[20];
+            bool[] reservaActiva = new bool[20];
+            int totalReservas = 0;
+            if (totalReservas >= 20)
             {
                 Console.WriteLine("No se pueden registrar más reservas.");
                 Console.ReadKey();
@@ -510,6 +537,7 @@
             reservaHuesped[totalReservas] = nombreHuesped[indiceHuesped];
             reservaHabitacion[totalReservas] = numHabitacion[indiceHab];
             disponible[indiceHab] = false;
+            reservaActiva[totalReservas] = true;
             totalReservas++;
 
             Console.WriteLine("Reserva registrada correctamente.");
