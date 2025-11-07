@@ -497,9 +497,8 @@
                 {
                     indiceHab = i;
                     break;
-                }                
+                }        
             }
-            
 
             if (indiceHab == -1)
             {
