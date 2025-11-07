@@ -23,7 +23,7 @@
         static int[] reservaHabitacion = new int[20];
         static int totalReservas = 0;
 
-        static void Main()
+        static void Main() //AILEEN
         {
             string opcion;
 
@@ -62,7 +62,7 @@
         }
 
         // Gestión de Habitaciones
-        static void GestionHabitaciones()
+        static void GestionHabitaciones() //AILEEN
         {
 
             string opcion;
@@ -94,7 +94,7 @@
             } while (opcion != "5");
         }
 
-        static void RegistrarHabitacion()
+        static void RegistrarHabitacion() //DANIEL
         {
             Console.Clear();
             Console.WriteLine("=== REGISTRAR HABITACIÓN ===");
@@ -148,12 +148,24 @@
             string tipo = "";
             do
             {
-                Console.Write("Ingrese el tipo de habitación (Individual, Doble, Suite): ");
-                tipo = Console.ReadLine();
-                if (string.IsNullOrWhiteSpace(tipo))
+                Console.Write("Ingrese el tipo de habitación (I: Individual, D: Doble, S: Suite): ");
+                tipo = Console.ReadLine().ToUpper();
+                switch (tipo)
                 {
-                    Console.WriteLine("El tipo no puede estar vacío.");
-                }
+                    case "I":
+                        tipo = "Individual";
+                        break;
+                    case "D":
+                        tipo = "Doble";
+                        break;
+                    case "S":
+                        tipo = "Suite";
+                        break;                    
+                    default:
+                        Console.WriteLine("Opción no válida. Por favor escriba el caracter indicado");
+                        Console.ReadKey();
+                        break;
+                }                
             } while (string.IsNullOrWhiteSpace(tipo));
 
             // --- VALIDAR PRECIO ---
@@ -184,7 +196,7 @@
             Console.ReadKey();
         }
 
-        static void VerListaHabitaciones()
+        static void VerListaHabitaciones() //DANIEL
         {
             Console.Clear();
             Console.WriteLine("=== LISTA DE HABITACIONES ===");
@@ -204,7 +216,7 @@
 
         }
 
-        static void EditarHabitacion()
+        static void EditarHabitacion() //AILEEN
         {
             Console.Write("Ingrese el número de habitación a editar: ");
             string entrada = Console.ReadLine();
@@ -225,15 +237,21 @@
                     Console.Write("Nuevo tipo: ");
                     string nuevoTipo = Console.ReadLine();
                     if (!string.IsNullOrWhiteSpace(nuevoTipo))
+                    {
                         tipoHabitacion[i] = nuevoTipo;
+                    }                    
 
                     Console.Write("Nuevo precio: ");
                     string entradaPrecio = Console.ReadLine();
                     double nuevoPrecio;
                     if (double.TryParse(entradaPrecio, out nuevoPrecio) && nuevoPrecio > 0)
+                    {
                         precioHabitacion[i] = nuevoPrecio;
+                    }
                     else
+                    {
                         Console.WriteLine("Precio no modificado (entrada inválida).");
+                    }                     
 
                     Console.WriteLine("Habitación actualizada correctamente.");
                     encontrada = true;
@@ -242,12 +260,14 @@
             }
 
             if (!encontrada)
-                Console.WriteLine("Habitación no encontrada.");
-
+            {
+                Console.WriteLine("Habitación no encontrada.");                
+            }
             Console.ReadKey();
+
         }
 
-        static void VerDisponibilidad()
+        static void VerDisponibilidad()//DANIEL
         {
             Console.Clear();
             Console.WriteLine("=== DISPONIBILIDAD DE HABITACIONES ===");
@@ -266,7 +286,7 @@
         }
 
         // ------------------ GESTIÓN DE HUÉSPEDES ------------------
-        static void GestionHuespedes()
+        static void GestionHuespedes()//DANIEL
         {
             string opcion;
             do
@@ -295,7 +315,7 @@
             } while (opcion != "4");
         }
 
-        static void RegistrarHuesped()
+        static void RegistrarHuesped()//DANIEL
         {
             if (totalHuespedes >= 20)
             {
@@ -345,7 +365,7 @@
             Console.ReadKey();
         }
 
-        static void VerListaHuespedes()
+        static void VerListaHuespedes()//DANIEL
         {
             Console.Clear();
             Console.WriteLine("=== LISTA DE HUÉSPEDES ===");
@@ -363,7 +383,7 @@
             Console.ReadKey();
         }
 
-        static void EditarHuesped()
+        static void EditarHuesped()//AILEEN
         {
             Console.Write("Ingrese el documento del huésped a editar: ");
             string doc = Console.ReadLine();
@@ -376,13 +396,17 @@
                     Console.Write("Nuevo nombre (enter para dejar igual): ");
                     string nuevoNombre = Console.ReadLine();
                     if (!string.IsNullOrWhiteSpace(nuevoNombre))
+                    {
                         nombreHuesped[i] = nuevoNombre;
-
+                    }
+                       
                     Console.Write("Nuevo teléfono (enter para dejar igual): ");
                     string nuevoTelefono = Console.ReadLine();
                     if (!string.IsNullOrWhiteSpace(nuevoTelefono))
+                    {
                         telefonoHuesped[i] = nuevoTelefono;
-
+                    }
+                   
                     Console.WriteLine("Datos actualizados correctamente.");
                     encontrado = true;
                     break;
@@ -390,13 +414,14 @@
             }
 
             if (!encontrado)
+            {
                 Console.WriteLine("Huésped no encontrado.");
-
+            }             
             Console.ReadKey();
         }
 
         //------------Gestión de Reservas------------
-        static void GestionReservas()
+        static void GestionReservas()//AILEEN
         {
             string opcion;
             do
@@ -425,9 +450,9 @@
             } while (opcion != "4");
         }
 
-        static void RegistrarReserva()
+        static void RegistrarReserva()//AILEEN
         {
-            if (totalReservas >= 20)
+            if (totalReservas >= 100)
             {
                 Console.WriteLine("No se pueden registrar más reservas.");
                 Console.ReadKey();
@@ -472,8 +497,9 @@
                 {
                     indiceHab = i;
                     break;
-                }
+                }                
             }
+            
 
             if (indiceHab == -1)
             {
@@ -491,7 +517,7 @@
             Console.ReadKey();
         }
 
-        static void VerReservas()
+        static void VerReservas()//DANIEL
         {
             Console.Clear();
             Console.WriteLine("=== LISTA DE RESERVAS ===");
@@ -509,7 +535,7 @@
             Console.ReadKey();
         }
 
-        static void CancelarReserva()
+        static void CancelarReserva()//DANIEL
         {
             Console.Write("Ingrese el número de habitación de la reserva a cancelar: ");
             string entrada = Console.ReadLine();
